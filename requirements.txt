@@ -1,0 +1,4 @@
+selenium =  Version: 4.3.0
+pytest = Version: 7.1.2
+Python = Version: 3.10
+allure-pytest = Version: 2.9.45
