@@ -7,7 +7,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 class YandexLocators:
     LOCATOR_YANDEX_SEARCH_FIELD = (By.XPATH, '//*[@class="input__control input__input mini-suggest__input"]')
     LOCATOR_SUGGEST = (By.XPATH, '//ul[@class="mini-suggest__popup-content"]')
-    LOCATOR_SEARCH_RESULT = (By.XPATH, '//*[@id="search-result"]/li[1]/div/div[1]/div[2]/div[1]/a')
+    LOCATOR_SEARCH_RESULT = (By.XPATH, '//*[@class= "Link Link_theme_outer Path-Item link path__item link organic__greenurl"]')
     LOCATOR_YANDEX_IMAGES = (By.XPATH, '//*[@class="services-new__icon services-new__icon_images"]')
     LOCATOR_IMAGES_CATEGORIES = (By.XPATH, '//div[@class="PopularRequestList-Item PopularRequestList-Item_pos_0"]')
     LOCATOR_TEXT_SEARCH = (By.XPATH,
