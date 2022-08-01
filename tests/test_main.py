@@ -11,6 +11,7 @@ def yandex(driver):
 class TestYandex:
     def test_yandex_page(self, yandex):
         yandex.go_to_site()
+        assert yandex.check_current_url() == "https://yandex.ru/"
 
     def test_search_field(self, yandex):
         yandex.search_field(text='Тензор')
@@ -33,7 +34,7 @@ class TestYandexImage:
 
     def test_url(self, yandex):
         yandex.switch_window()
-        yandex.check_current_url()
+        assert yandex.check_current_url() == 'https://yandex.ru/images/?utm_source=main_stripe_big'
 
     def test_categories_in_search_field(self, yandex):
         name_categories = str(yandex.save_name_categories()).lower()
