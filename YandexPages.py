@@ -5,9 +5,10 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 class YandexLocators:
+    LOCATOR_YANDEX_TITLE = (By.XPATH, '//*[/html/head/title]')
     LOCATOR_YANDEX_SEARCH_FIELD = (By.XPATH, '//*[@class="input__control input__input mini-suggest__input"]')
     LOCATOR_SUGGEST = (By.XPATH, '//ul[@class="mini-suggest__popup-content"]')
-    LOCATOR_SEARCH_RESULT = (By.XPATH, '//*[@class= "Link Link_theme_outer Path-Item link path__item link organic__greenurl"]')
+    LOCATOR_SEARCH_RESULT = (By.XPATH, '//*[@id="search-result"]/li[1]/div/div[1]/div[2]/div[1]/a')
     LOCATOR_YANDEX_IMAGES = (By.XPATH, '//*[@class="services-new__icon services-new__icon_images"]')
     LOCATOR_IMAGES_CATEGORIES = (By.XPATH, '//div[@class="PopularRequestList-Item PopularRequestList-Item_pos_0"]')
     LOCATOR_TEXT_SEARCH = (By.XPATH,
@@ -41,6 +42,7 @@ class SearchHelper(BasePage):
 
     def check_site(self, site):
         site_search = self.find_element(YandexLocators.LOCATOR_SEARCH_RESULT).get_attribute('href')
+        print(site, site_search)
         assert site == site_search
 
     def check_images_button(self):
@@ -57,7 +59,8 @@ class SearchHelper(BasePage):
 
     def check_current_url(self):
         check_current_url = self.driver.current_url
-        assert check_current_url == 'https://yandex.ru/images/?utm_source=main_stripe_big'
+        return check_current_url
+
 
     def open_yandex_images_categories(self):
         images_categories = self.find_element(YandexLocators.LOCATOR_IMAGES_CATEGORIES).click()
@@ -117,6 +120,6 @@ class SearchHelper(BasePage):
         time.sleep(1)
         assert actual_src == down_src
 
-
-
-
+    def check_title(self):
+        title = self.find_element(YandexLocators.LOCATOR_YANDEX_TITLE).get_attribute('title')
+        return title
